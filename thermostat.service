@@ -1,0 +1,13 @@
+[Unit]
+Description=Compute temperature and activate heating
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/home/chip/temp_exp.rb
+Environment="RACK_ENV=prod" "PORT0=8080"
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
